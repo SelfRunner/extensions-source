@@ -98,7 +98,7 @@ jobs:
 
       - name: Upload APKs (${{ matrix.chunk.number }})
         uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
-        if: "github.repository == 'keiyoushi/extensions-source'"
+        if: "github.repository == 'SelfRunner/extensions-source'"
         with:
           name: "individual-apks-${{ matrix.chunk.number }}"
           path: "**/*.apk"
@@ -110,7 +110,7 @@ jobs:
   publish:
     name: Publish extension repo
     needs: [prepare, build]
-    if: "github.repository == 'keiyoushi/extensions-source'"
+    if: "github.repository == 'SelfRunner/extensions-source'"
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -144,9 +144,9 @@ jobs:
       - name: Checkout repo branch
         uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
         with:
-          repository: keiyoushi/extensions
+          repository: SelfRunner/extensions-source
           token: ${{ secrets.BOT_PAT }}
-          ref: repo
+          ref: main
           path: repo
           persist-credentials: true
 
