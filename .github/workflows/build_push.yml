@@ -110,7 +110,7 @@ jobs:
   publish:
     name: Publish extension repo
     needs: [prepare, build]
-    if: "github.repository == 'keiyoushi/extensions-source'"
+    if: "github.repository == 'SelfRunner/extensions-source'"
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
